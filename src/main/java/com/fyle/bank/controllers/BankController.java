@@ -55,7 +55,7 @@ public class BankController {
     @GetMapping("/banks/{city}/{bankName}")
     public List<BankBranch> getBankBranches(@PathVariable("city") String city,
                                             @PathVariable("bankName") String bankName){
-        return bankBranchRepository.findByBankNameAndCity(city,bankName);
+        return bankBranchRepository.findByBankNameAndCity(bankName,city);
     }
 
 
