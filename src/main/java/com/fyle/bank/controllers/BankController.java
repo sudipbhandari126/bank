@@ -1,7 +1,9 @@
 package com.fyle.bank.controllers;
 
 import com.fyle.bank.models.Bank;
+import com.fyle.bank.models.BankBranch;
 import com.fyle.bank.models.Branch;
+import com.fyle.bank.repositories.BankBranchRepository;
 import com.fyle.bank.repositories.BankRepository;
 import com.fyle.bank.repositories.BranchRepository;
 import com.fyle.bank.services.BranchService;
@@ -20,6 +22,9 @@ public class BankController {
 
     @Autowired
     BranchService branchService;
+
+    @Autowired
+    BankBranchRepository bankBranchRepository;
 
     @Autowired
     BranchRepository branchRepository;
@@ -44,6 +49,13 @@ public class BankController {
     @GetMapping("/banks/ifsc/{ifscCode}")
     public Branch getBranch(@PathVariable("ifscCode") String ifscCode){
        return branchService.branchByIfscCode(ifscCode);
+    }
+
+
+    @GetMapping("/banks/{city}/{bankName}")
+    public List<BankBranch> getBankBranches(@PathVariable("city") String city,
+                                            @PathVariable("bankName") String bankName){
+        return bankBranchRepository.findByBankNameAndCity(city,bankName);
     }
 
 
