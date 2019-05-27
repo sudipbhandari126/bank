@@ -19,7 +19,8 @@ This is a maven app.
 1. [Deploying SpringBoot app to heroku](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku)
 2. Exporting sql data
 
-``` heroku pg:psql --app protected-castle-32347 <  ../indian_banks/indian_banks.sql 
+``` 
+heroku pg:psql --app protected-castle-32347 <  ../indian_banks/indian_banks.sql 
 ```
 
 *protected-castle-32347* is the heroku app name
