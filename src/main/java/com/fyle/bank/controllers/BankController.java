@@ -4,6 +4,7 @@ import com.fyle.bank.models.Bank;
 import com.fyle.bank.models.Branch;
 import com.fyle.bank.repositories.BankRepository;
 import com.fyle.bank.repositories.BranchRepository;
+import com.fyle.bank.services.BranchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,9 @@ import java.util.Optional;
 public class BankController {
     @Autowired
     BankRepository bankRepository;
+
+    @Autowired
+    BranchService branchService;
 
     @Autowired
     BranchRepository branchRepository;
@@ -36,4 +40,11 @@ public class BankController {
         Optional<Bank> byId = bankRepository.findById(bankId);
         return byId.get();
     }
+
+    @GetMapping("/banks/ifsc/{ifscCode}")
+    public Branch getBranch(@PathVariable("ifscCode") String ifscCode){
+       return branchService.branchByIfscCode(ifscCode);
+    }
+
+
 }
