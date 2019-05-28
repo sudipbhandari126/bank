@@ -26,7 +26,7 @@ public class SwaggerConfig {
         String serviceName="Bank Service running at profile:: "+ Arrays.toString(environment.getActiveProfiles());
         return new ApiInfo(
                 serviceName,
-                "This is a demo of bank and branch services",
+                "This is a demo of bank and branch services: Github: https://github.com/sudipbhandari126/bank",
                 "1.0.0",
                 "Feel free to play around",
                  new Contact("Sudip Bhandari","https://sudipbhandari126.github.io","sudip.post@gmail.com"),
