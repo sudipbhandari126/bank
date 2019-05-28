@@ -48,6 +48,12 @@ public class BankService {
         return branchRepository.findById(ifscCode);
     }
 
+    /**
+     * Returns the list of bankBranch (From bank_branch view) based on given city and bank name
+     * @param city
+     * @param bankName
+     * @return
+     */
     public List<BankBranch> fetchBankBranches(String city, String bankName) {
         log.info("fetching bank and branch details for city: {} and bankName: {}",city,bankName);
         return bankBranchRepository.findByBankNameAndCity(bankName,city);
