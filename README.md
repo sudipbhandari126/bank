@@ -26,5 +26,4 @@ heroku pg:psql --app protected-castle-32347 <  ../indian_banks/indian_banks.sql
 *protected-castle-32347* is the heroku app name
  
  ## todo
- 1. Add proper logging
  2. Add tests
